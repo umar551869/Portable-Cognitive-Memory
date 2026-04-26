@@ -1,0 +1,411 @@
+---
+id: identity_umar_ilyas
+type: identity
+tags: [profile, ai_engineer, systems]
+---
+
+# Umar Ilyas – Cognitive Profile
+
+## Role
+Data Scientist & AI Engineer
+
+## Focus Areas
+- Retrieval-Augmented Generation (RAG)
+- Multimodal Search Systems
+- AI Agents (CLI-based)
+- Vector Databases (FAISS)
+
+## Tech Stack
+- Python
+- FastAPI / Flask
+- React (learning Next.js)
+- PostgreSQL
+- FAISS
+
+## Preferences
+- Local-first tools
+- Modular architectures
+- CLI-based workflows
+- Avoid vendor lock-in
+
+## Current Direction
+Building a Portable Cognitive Graph system to unify memory across AI tools.
+
+---
+id: project_multimodal_search
+type: project
+tags: [clip, faiss, search, ai]
+links: [concept_clip, tool_faiss, project_jarvis_agent]
+---
+
+# Multimodal Search Engine
+
+## Summary
+Search system using image and text inputs powered by CLIP.
+
+## Components
+- CLIP model for embeddings
+- FAISS for similarity search
+- Flask backend
+- React frontend
+
+## Features
+- text-to-image search
+- image-to-image search
+- fast nearest neighbor retrieval
+
+## Challenges
+- embedding normalization
+- query latency
+- index scaling
+
+## Related Concepts
+- vector search
+- multimodal embeddings
+---
+id: project_jarvis_agent
+type: project
+tags: [agent, cli, ai]
+links: [concept_ai_agent, tool_gemini_cli, concept_memory_system]
+---
+
+# Jarvis CLI Agent
+
+## Summary
+CLI-based AI assistant for automation and productivity.
+
+## Features
+- command execution
+- memory recall
+- context-aware responses
+
+## Decisions
+- use markdown as memory base
+- integrate vector database
+- modular plugin system
+
+## Future Goals
+- voice commands
+- task automation
+- persistent memory
+---
+id: decision_use_faiss
+type: decision
+tags: [vector-db, retrieval]
+links: [concept_vector_search, tool_faiss]
+---
+
+# Decision: Use FAISS
+
+## Context
+Need efficient similarity search for embeddings.
+
+## Decision
+Use FAISS instead of Chroma.
+
+## Reasons
+- faster
+- local control
+- scalable
+
+## Tradeoffs
+- manual persistence
+---
+id: decision_markdown_memory
+type: decision
+tags: [memory, architecture]
+links: [concept_memory_system]
+---
+
+# Decision: Markdown-based Memory
+
+## Decision
+Use Markdown + YAML as primary storage.
+
+## Reason
+- human-readable
+- portable
+- AI-friendly
+
+## Tradeoff
+- requires parsing layer
+---
+id: session_clip_pipeline
+type: session
+tags: [clip, embeddings]
+links: [project_multimodal_search, concept_clip, tool_faiss]
+---
+
+# Session: CLIP Pipeline Work
+
+## Goal
+Improve embedding quality for image search.
+
+## Actions
+- tested CLIP embeddings
+- normalized vectors
+- indexed in FAISS
+
+## Observations
+- cosine similarity works better than L2
+- normalization improves consistency
+
+## Decisions
+- use cosine similarity
+---
+id: session_agent_design
+type: session
+tags: [agent, architecture]
+links: [project_jarvis_agent, concept_ai_agent]
+---
+
+# Session: Agent Design
+
+## Goal
+Design CLI-based AI assistant.
+
+## Actions
+- defined command structure
+- designed memory system
+- explored Gemini CLI
+
+## Insights
+- memory is key differentiator
+- CLI gives control
+
+## Output
+Initial architecture drafted
+---
+id: concept_vector_search
+type: concept
+tags: [embeddings, similarity]
+---
+
+# Vector Search
+
+Technique for retrieving similar items using embeddings.
+
+## Methods
+- cosine similarity
+- dot product
+- L2 distance
+
+## Use Cases
+- semantic search
+- recommendation systems
+- image retrieval
+---
+id: concept_clip
+type: concept
+tags: [multimodal, embeddings]
+---
+
+# CLIP Model
+
+Contrastive Language-Image Pretraining model.
+
+## Capabilities
+- encode images and text into same space
+- enable cross-modal search
+
+## Applications
+- image search
+- captioning
+- retrieval systems
+---
+id: concept_ai_agent
+type: concept
+tags: [agents, automation]
+---
+
+# AI Agent
+
+Autonomous system capable of performing tasks.
+
+## Components
+- memory
+- reasoning
+- tools
+
+## Types
+- reactive agents
+- planning agents
+User tested FAISS indexing with 10k vectors.
+Observed latency improvement.
+Discussed integration with CLIP model.
+Working on CLI agent.
+Need memory persistence.
+Thinking about vector database vs file system.
+---
+id: project_resume_ai
+type: project
+tags: [nlp, recommendation, ml]
+links: [concept_nlp, concept_recommendation_system, tool_sklearn]
+---
+
+# Resume AI System
+
+## Summary
+Machine learning system for candidate filtering and job recommendation.
+
+## Features
+- resume parsing
+- skill extraction
+- job matching
+- salary prediction
+
+## Models Used
+- SVM
+- TF-IDF
+- classification pipelines
+
+## Challenges
+- noisy resume data
+- feature engineering
+---
+id: concept_recommendation_system
+type: concept
+tags: [ml, systems]
+---
+
+# Recommendation System
+
+System that suggests relevant items to users.
+
+## Techniques
+- collaborative filtering
+- content-based filtering
+- hybrid systems
+
+## Applications
+- e-commerce
+- job matching
+- media platforms
+---
+id: concept_nlp
+type: concept
+tags: [language, ai]
+---
+
+# Natural Language Processing
+
+Field of AI focused on understanding text and language.
+
+## Tasks
+- classification
+- entity recognition
+- summarization
+
+## Tools
+- transformers
+- tokenization
+---
+id: decision_use_svm
+type: decision
+tags: [ml, classification]
+links: [concept_nlp, project_resume_ai]
+---
+
+# Decision: Use SVM for Classification
+
+## Context
+Need a reliable baseline model for text classification.
+
+## Decision
+Use Support Vector Machine (SVM)
+
+## Reason
+- effective for high-dimensional data
+- works well with TF-IDF
+
+## Tradeoff
+- not scalable for very large datasets
+---
+id: session_resume_pipeline
+type: session
+tags: [nlp, pipeline]
+links: [project_resume_ai, concept_nlp]
+---
+
+# Session: Resume Pipeline
+
+## Goal
+Build end-to-end resume processing pipeline.
+
+## Actions
+- cleaned dataset
+- extracted features
+- trained SVM model
+
+## Observations
+- preprocessing impacts accuracy heavily
+- stopword removal helps
+---
+id: concept_embeddings
+type: concept
+tags: [vector, ai]
+---
+
+# Embeddings
+
+Vector representation of data in high-dimensional space.
+
+## Types
+- word embeddings
+- sentence embeddings
+- image embeddings
+
+## Use Cases
+- semantic search
+- clustering
+- recommendation
+Tested embedding similarity across different models.
+Observed that cosine similarity is more stable.
+FAISS indexing worked well for small datasets.
+Working on combining NLP pipeline with recommendation system.
+Trying to link resume data with job descriptions.
+Need better feature representation.
+---
+id: project_ai_product_finder
+type: project
+tags: [ecommerce, ai, scraping]
+links: [concept_trend_analysis, concept_recommendation_system]
+---
+
+# AI Product Finder
+
+## Summary
+System to detect trending products with high margins.
+
+## Features
+- scraping product data
+- trend scoring
+- competition analysis
+
+## Output
+- product name
+- trend score
+- competition score
+
+## Challenges
+- noisy data sources
+- dynamic trends
+---
+id: concept_trend_analysis
+type: concept
+tags: [data, analytics]
+---
+
+# Trend Analysis
+
+Process of identifying patterns over time.
+
+## Techniques
+- time series analysis
+- moving averages
+- anomaly detection
+
+## Applications
+- product discovery
+- stock market
+- social media trends

@@ -1,0 +1,20 @@
+Terminal 1: Backend Setup & Run
+cd Backend pip install -r requirements.txt python -m pcg serve
+
+cd Backend; $env:PYTHONPATH="."; python -m pcg serve
+
+Terminal 2: Frontend Setup & Run
+cd Frontend npm install npm run dev
+
+cd Frontend; npm install; npm run dev
+
+[EXPLANATION] Sir, these commands will initialize the FastAPI backend and launch the React/Vite frontend to visualize your cognitive graph.
+
+🛠️ Maintenance & Data Ingestion
+If you need to perform specific operations, you can use these additional CLI commands:
+
+Task	Command
+Ingest New Data	python ingest_hybrid.py
+Rebuild Graph	python -m pcg rebuild
+Initialize Database	python -m pcg initdb
+Check Stats	python check_stats.py
